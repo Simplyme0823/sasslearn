@@ -1,0 +1,21 @@
+/** @format */
+
+// css中有继承的概念，即子元素会继承父元素的样式
+.btn {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  font-size: 14px;
+}
+// extend解决了单纯使用@mixin虽然可以复用样式，但是并不能智能合并样式的问题
+// 编译后：.btn, .btn-primary, .btn-second{} 形式
+.btn-primary {
+  background-color: orange;
+  color: #fff;
+  @extend .btn;
+}
+
+.btn-second {
+  background-color: #ff3366;
+  color: #fff;
+  @extend .btn;
+}

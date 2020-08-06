@@ -1,0 +1,17 @@
+/** @format */
+.btn, .btn-primary, .btn-second {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background-color: orange;
+  color: #fff;
+}
+
+.btn-second {
+  background-color: #ff3366;
+  color: #fff;
+}
+/*# sourceMappingURL=extend.css.map */

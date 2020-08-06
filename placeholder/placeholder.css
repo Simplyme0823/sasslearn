@@ -1,0 +1,9 @@
+/** @format */
+.test, .block {
+  margin-top: 5px;
+}
+
+.test, .block span {
+  padding-top: 5px;
+}
+/*# sourceMappingURL=placeholder.css.map */

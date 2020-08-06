@@ -1,0 +1,5 @@
+/** @format */
+body.firefox .header:befor {
+  content: "Hi, chorme";
+}
+/*# sourceMappingURL=string.css.map */

@@ -1,0 +1,66 @@
+/** @format */
+
+$properties: (margin, padding);
+@mixin set-value($side, $value) {
+  @each $prop in $properties {
+    #{$prop}-#{$side}: $value;
+  }
+}
+
+.login-box {
+  @include set-value(top, 14px);
+}
+
+@mixin generate-sizes($class, $small, $medium, $big) {
+  .#{$class}-small {
+    font-size: $small;
+  }
+  .#{$class}-medium {
+    font-size: $medium;
+  }
+  .#{$class}-big {
+    font-size: $big;
+  }
+}
+@include generate-sizes("header-text", 12px, 20px, 40px);
+
+// 既然可以动态生成类了，可以在用mixin生成另一个mixin吗
+// 不能 Error: Undefined variable: "$margin-".
+$margin-big: 40px;
+$margin-medium: 20px;
+$margin-small: 12px;
+@mixin set-size($size: "big") {
+  margin-top: $margin-#{$size};
+}
+.login-box {
+  @include set-size();
+}
+
+// 可以在mixin中使用吗？
+// 不能 property "#{$flag}" must be followed by a ':'
+@mixin updated-status {
+  margin-top: 20px;
+  background: #f00;
+}
+$flag: "status";
+.navigation {
+  @include updated-#{$flag};
+}
+
+// 可以在@extend中使用差值
+
+%update-status {
+  margin: 20px;
+  background-color: #fff;
+}
+.selected-status {
+  font-weight: bold;
+}
+
+.nav {
+  @extend %update-#{$flag};
+  @extend .selected-#{$flag};
+}
+
+// 总结 使用extend可以动态地插入类和placeholder
+// 在mixin/inclued中不能随意使用插入符

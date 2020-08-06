@@ -1,0 +1,36 @@
+/** @format */
+body {
+  background: red;
+}
+
+body {
+  line-height: 2;
+}
+
+body a {
+  background: yellow;
+}
+
+nav a {
+  color: red;
+}
+
+header nav a {
+  color: green;
+}
+
+.body {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+  overflow: hidden;
+}
+/*# sourceMappingURL=basic.css.map */

@@ -1,0 +1,21 @@
+/** @format */
+
+// quoted string "test"
+// unquoted string test
+
+//大多数情况下两个都一样
+
+//但是在使用插值语法的时候有引号字符会被编译成无符号字符
+//方便在mixin的时候引用选择器
+
+@mixin firefox-message($selector) {
+  body.firefox #{$selector}:befor {
+    content: "Hi, chorme";
+  }
+}
+
+// 这里是由于编译成了类.header 类名当然不能带引号
+@include firefox-message(".header");
+
+// 需要注意的是：当 deprecated = property syntax 时 （暂时不理解是怎样的情况），
+// 所有的字符串都将被编译为无引号字符串，不论是否使用了引号。
