@@ -1,0 +1,37 @@
+/** @format */
+.test1 {
+  content: hello sass;
+}
+
+.test2 {
+  content: "hello sass";
+}
+
+.test3 {
+  content: 'hello sass';
+}
+
+.test4 {
+  content: "test";
+}
+
+.test5 {
+  content: "test test";
+}
+
+.test6 {
+  content: '"test" test';
+}
+
+.test7 {
+  text: AAA;
+}
+
+.test8 {
+  text: AA-AAA-AA;
+}
+
+.test9 {
+  text: aa-aaa-aa;
+}
+/*# sourceMappingURL=index.css.map */

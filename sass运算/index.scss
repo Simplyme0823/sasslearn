@@ -1,0 +1,66 @@
+/** @format */
+
+//  加减法： 对于不同单位计算会报错
+// 1 in = 96px
+.index {
+  width: 20px + 8in;
+}
+
+$full-width: 960px;
+$sidebar-width: 200px;
+.contentbox {
+  width: $full-width - $sidebar-width;
+}
+
+// 乘法  只需要一个数值提供单位；两个不同单位运算也会报错
+
+.box {
+  width: 10px * 2;
+}
+
+// 除法：有时候要用()包裹表达式
+
+.box1 {
+  width: (100px / 2);
+}
+
+$box-width: 100px;
+$scale: 2;
+.box2 {
+  width: $box-width / $scale;
+}
+
+.box3 {
+  width: 100px / 2 + 2in;
+}
+
+// 两个带有相同单位的运算结果为一个number
+.box4 {
+  width: (10000px / 100px);
+}
+
+// 颜色运算
+p {
+  color: #010203 + #040506;
+}
+
+p {
+  color: #010203 * 2;
+}
+
+// 字符串运算
+$string: "hello" + "sass !";
+
+// #{} 用来拼接字符串
+.box::before {
+  content: "#{$string}";
+}
+
+div {
+  cursor: e + -resize;
+}
+
+p::before {
+  content: "Foo " + Bar;
+  font-family: sans + "-serif";
+}

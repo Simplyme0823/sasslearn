@@ -1,0 +1,107 @@
+/** @format */
+.block {
+  display: block;
+}
+
+.block {
+  display: none;
+}
+
+.item-1 {
+  width: 2em;
+}
+
+.item-2 {
+  width: 4em;
+}
+
+.span1, .span2, .span3, .span4, .span5, .span6, .span7, .span8, .span9, .span10, .span11, .span12 {
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.span1 {
+  width: 60px;
+}
+
+.span2 {
+  width: 140px;
+}
+
+.span3 {
+  width: 220px;
+}
+
+.span4 {
+  width: 300px;
+}
+
+.span5 {
+  width: 380px;
+}
+
+.span6 {
+  width: 460px;
+}
+
+.span7 {
+  width: 540px;
+}
+
+.span8 {
+  width: 620px;
+}
+
+.span9 {
+  width: 700px;
+}
+
+.span10 {
+  width: 780px;
+}
+
+.span11 {
+  width: 860px;
+}
+
+.span12 {
+  width: 940px;
+}
+
+.while-4 {
+  width: 24px;
+}
+
+.while-3 {
+  width: 23px;
+}
+
+.while-2 {
+  width: 22px;
+}
+
+.while-1 {
+  width: 21px;
+}
+
+.author-bio .photo-adam {
+  background: url("/images/avatoars/adam.png") no-repeat;
+}
+
+.author-bio .photo-john {
+  background: url("/images/avatoars/john.png") no-repeat;
+}
+
+.author-bio .photo-wynn {
+  background: url("/images/avatoars/wynn.png") no-repeat;
+}
+
+.author-bio .photo-mason {
+  background: url("/images/avatoars/mason.png") no-repeat;
+}
+
+.author-bio .photo-kuroir {
+  background: url("/images/avatoars/kuroir.png") no-repeat;
+}
+/*# sourceMappingURL=index.css.map */

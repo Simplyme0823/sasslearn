@@ -1,0 +1,73 @@
+/** @format */
+
+// @if @else
+@mixin blockOrHidden($boolean: true) {
+  @if $boolean {
+    @debug "$boolean is #{$boolean}";
+    display: block;
+  } @else {
+    @debug "$boolean is #{$boolean}";
+    display: none;
+  }
+}
+
+.block {
+  @include blockOrHidden(true);
+}
+
+.block {
+  @include blockOrHidden(false);
+}
+
+// @for循环
+
+// @for $i from <start> through <end>  through包含结束值
+// @for $i from <start> to <end>        不包含结束值
+
+// 演示
+@for $i from 1 to 3 {
+  .item-#{$i} {
+    width: 2em * $i;
+  }
+}
+
+// 实例：利用for循环实现网格系统
+$grid-prefix: span !default;
+$grid-width: 60px !default;
+$grid-gutter: 20px !default;
+%grid {
+  float: left;
+  margin-left: $grid-gutter/2;
+  margin-right: $grid-gutter/2;
+}
+
+@for $i from 1 through 12 {
+  .#{$grid-prefix}#{$i} {
+    width: $grid-width * $i + $grid-gutter * ($i - 1);
+    @extend %grid;
+  }
+}
+
+// @while循环
+$types: 4;
+$type-width: 20px;
+@while $types > 0 {
+  .while-#{$types} {
+    width: $type-width + $types;
+  }
+  $types: $types - 1;
+}
+
+// @each循环
+$list: adam john wynn mason kuroir;
+@mixin author-images {
+  @each $author in $list {
+    .photo-#{$author} {
+      background: url("/images/avatoars/#{$author}.png") no-repeat;
+    }
+  }
+}
+
+.author-bio {
+  @include author-images;
+}
