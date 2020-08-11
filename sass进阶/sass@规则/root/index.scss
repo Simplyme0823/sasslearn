@@ -1,0 +1,34 @@
+/** @format */
+
+// @at-root 跳出根元素 选择器嵌套多层之后，想让某个选择器跳出，此时就可以使用 @at-root
+.a {
+  color: red;
+
+  .b {
+    color: orange;
+
+    .c {
+      color: yellow;
+      // 把.d类从嵌套中取出 没有.a .b .c .d样式
+      @at-root .d {
+        color: green;
+      }
+    }
+  }
+}
+
+.e {
+  color: red;
+
+  .f {
+    color: orange;
+
+    .g {
+      color: yellow;
+      // .e .f .g .h
+      .h {
+        color: green;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+/** @format */
+
+// @debug 在 Sass 中是用来调试的，当你的在 Sass 的源码中使用了 @debug
+//   指令之后，Sass 代码在编译出错时，在命令终端会输出你设置的提示 Bug: ;
+
+// input
+@debug 10em + 12em;
+
+// output
+// Line 1 DEBUG: 22em

@@ -1,0 +1,48 @@
+/** @format */
+
+// key:value成对出现，类似于json
+
+$theme-color: (
+  default: (
+    bgcolor: #fff,
+    text-color: #444,
+    link-color: #39f,
+  ),
+  primary: (
+    bgcolor: #000,
+    text-color: #fff,
+    link-color: #93f,
+  ),
+  negative: (
+    bgcolor: #f36,
+    text-color: #fefefe,
+    link-color: #d4e,
+  ),
+  test: #fff,
+);
+
+// 变量的管理
+.btn-dribble {
+  color: map-get($theme-color, test);
+  content: map-has-key($theme-color, test);
+  font-family: map-keys($theme-color);
+  font-family: map-values(map-get($theme-color, default));
+}
+
+// map-merge 合并两个map
+
+// 移除一个key 得到新map
+$newMap: map-remove($theme-color, test);
+
+// keywords($args) 动态创建map的函数
+@mixin map($args...) {
+  @debug keywords($args);
+}
+
+@include map(
+  $dribble: #ea4c89,
+  $facebook: #3b5998,
+  $github: #171515,
+  $google: #db4437,
+  $twitter: #55acee
+);

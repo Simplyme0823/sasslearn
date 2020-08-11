@@ -1,0 +1,29 @@
+/** @format */
+
+// @import
+// 一下四种情况都是导入css
+// 文件拓展名是 .css；
+// 文件名以 http:// 开头；
+// 文件名是 url()；
+// @import 包含 media queries。
+
+// 对于css的导入可以使用插值语句用在路径中使用变量 如下
+// 这里导入的是普通css
+$family: unquote("Droid+Sans");
+@import url("http://fonts.googleapis.com/css?family=#{$family}");
+
+// 为什么这个不行？？？ 和使用插件有关？？
+// @import "../sass颜色函数/index.scss";
+
+@import "example";
+.test {
+  color: $red;
+}
+
+// 分音 example.scss -> _example.scss  导入语句中却不需要添加下划线。这样可以让scss不被编译
+// 不可以同时存在添加下划线与未添加下划线的同名文件，添加下划线的文件将会被忽略。
+
+// 嵌套import
+#main {
+  @import "example1"; // 注意对应的编译结果
+}

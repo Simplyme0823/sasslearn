@@ -1,0 +1,117 @@
+/** @format */
+
+$bgcolor: #000;
+
+// rgba()
+.layout {
+  background-color: rgba($bgcolor, 0.5);
+}
+
+// red() green() blue()
+.body {
+  @if red(#f36) > 50 {
+    color: #fff;
+  }
+}
+
+// mix($color1, $color2, $weight)  $weight为第一个颜色所占比重
+$color1: rgb(114, 41, 41);
+$color2: green;
+.body {
+  color: mix($color1, $color2, 0.8);
+}
+
+// hsl($hue,$saturation,$lightness)：通过色相（hue）、饱和度(saturation)和亮度（lightness）的值创建一个颜色；
+// hsla($hue,$saturation,$lightness,$alpha)：通过色相（hue）、饱和度(saturation)、亮度（lightness）和透明（alpha）的值创建一个颜色；
+// hue($color)：从一个颜色中获取色相（hue）值；
+// saturation($color)：从一个颜色中获取饱和度（saturation）值；
+// lightness($color)：从一个颜色中获取亮度（lightness）值；
+// adjust-hue($color,$degrees)：通过改变一个颜色的色相值，创建一个新的颜色；
+// 通常这个度数值是在 -360deg 至 360deg 之间，当然了可以是百分数
+.lighten {
+  background-color: adjust-hue($color2, 30%);
+  color: adjust-hue($color2, 30deg);
+}
+// lighten($color,$amount)：通过改变颜色的亮度值，让颜色变亮，创建一个新的颜色；
+// 不过常用的一般都在 3%~20% 之间。
+// 当颜色的亮度值接近或大于 100%，颜色会变成白色；反之颜色的亮度值接近或小于 0 时，颜色会变成黑色。
+.lighten {
+  background: lighten($color1, 30%);
+}
+// darken($color,$amount)：通过改变颜色的亮度值，让颜色变暗，创建一个新的颜色；
+
+// saturate($color,$amount)：通过改变颜色的饱和度值，让颜色更饱和，从而创建一个新的颜色
+.lighten {
+  background: saturate($color1, 30%);
+}
+// desaturate($color,$amount)：通过改变颜色的饱和度值，让颜色更少的饱和，从而创建出一个新的颜色；
+
+// grayscale($color)：将一个颜色变成灰色，相当于desaturate($color,100%);
+.lighten {
+  background: grayscale($color1);
+}
+// complement($color)：返回一个补充色，相当于adjust-hue($color,180deg);
+// invert($color)：反回一个反相色，红、绿、蓝色值倒过来，而透明度不变。
+
+// alpha($color) /opacity($color)：获取颜色透明度值；
+// rgba($color, $alpha)：改变颜色的透明度值；
+// opacify($color, $amount) / fade-in($color, $amount)：使颜色更不透明；
+.test {
+  color: opacify(rgba(22, 34, 235, 0.6), 0.2);
+  background-color: fade-in(rgba(22, 34, 235, 0.6), 0.1);
+}
+// transparentize($color, $amount) / fade-out($color, $amount)：使颜色更加透明。
+.test {
+  color: transparentize(rgba(22, 34, 235, 0.6), 0.2);
+  background-color: fade-out(rgba(22, 34, 235, 0.6), 0.1);
+}
+
+@mixin swatchesDarken($color) {
+  @for $i from 1 through 10 {
+    $x: $i + 11;
+    li:nth-child(#{$x}) {
+      $n: $i * 5;
+      $bgc: darken($color, $n);
+      background-color: $bgc;
+      &:hover:before {
+        content: "#{$bgc}";
+        color: lighten($bgc, 40);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 8px;
+        padding: 2px;
+      }
+    }
+  }
+}
+
+@mixin swatchesLighten($color) {
+  @for $i from 1 through 10 {
+    $x: 11 - $i;
+    li:nth-child(#{$x}) {
+      $n: $i * 5;
+      $bgc: lighten($color, $n);
+      &:hover:before {
+        content: "#{$bgc}";
+        color: darken($bgc, 40);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 8px;
+        padding: 2px;
+      }
+    }
+  }
+}
+
+$redBase: #dc143c;
+.swatches li {
+  width: 4.7619047619%;
+  float: left;
+  height: 60px;
+  list-style: none outside none;
+}
+ul.red {
+  @include swatchesLighten($redBase);
+  @include swatchesDarken($redBase);
+  li:nth-child(11) {
+    background-color: $redBase;
+  }
+}

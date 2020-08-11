@@ -1,0 +1,57 @@
+/** @format */
+
+.footer {
+  width: round(12.3px);
+  height: round(15px/10px);
+}
+
+.footer {
+  width: ceil(12.3px);
+  height: floor(15px/10px);
+}
+
+.footer {
+  width: abs(-12.3px);
+  height: floor(15px/10px);
+}
+
+.footer {
+  width: max(1px, 5px);
+  height: min(2px, 10px);
+}
+
+// random() 随机函数
+
+// 列表函数，对列表进行操作
+// length(5px 88px (border 66px solid) 4em  (border 8em solid))  长度为5
+
+// nth($list, $n) 这里的n与css一样 不是js中的index 第一项为1
+// nth((1px solid red) border-top green,1) ===> (1px solid red)
+
+// join($list1, $list2, $separator) 只能连接两个列表，并且当两个列表的分隔符不一样的的时候可以认为指定
+// join是一维的
+// >> join((blue green),(red,orange),comma)
+// (#0000ff, #008000, #ff0000, #ffa500)
+// >> join((blue green),(red,orange),space)
+// (#0000ff #008000 #ff0000 #ffa500)
+
+// append($list, $item, $separator)  往列表最后一位插入值，列表也可以指定分隔符
+
+// zip(...$list)  将多个列表边城多维列表
+// zip(1px 2px 3px,solid dashed dotted,green blue red)
+// ((1px "solid" #008000), (2px "dashed" #0000ff), (3px "dotted" #ff0000))
+
+// index($List, $item)  获取值在列表中的位置 index从1开始
+
+// Introspection函数
+// 1. type-of($value)   数值类型 number, string, bool, color
+// 2. unit($number)     数值单位 px % em em*px px/em 后两者其实在css中并没有意义
+// 3. unitless($number) 一个值是否有单位 true false
+// 4. comparable($number-1, $number-2)  两个值是否可以加减与合并 true false
+
+// Miscellaneous
+// if($condition, $if-true, $if-false)
+// >> if(true,1px,2px)
+// 1px
+// >> if(false,1px,2px)
+// 2px

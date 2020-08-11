@@ -1,0 +1,63 @@
+/** @format */
+
+// 扩展选择器与占位符
+.error {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+.error.intrusion {
+  background-image: url("/image/hacked.png");
+}
+.seriousError {
+  @extend .error; // 这就相当于把.error的样式也给了seriesError
+  border-width: 3px;
+}
+
+.hoverlink {
+  @extend a:hover; // 把a:hover的样式也给了hoverlink
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+//？？？
+// .comment a.user:hover, .comment .user.hoverlink, .comment .user.hoverlinks
+.hoverlinks {
+  @extend a:hover;
+}
+.comment a.user:hover {
+  font-weight: bold;
+}
+
+// 多个扩展
+.error {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+.attention {
+  font-size: 3em;
+  background-color: #ff0;
+}
+
+//.error, .seriousError
+//.attention, .seriousError
+.seriousError {
+  @extend .error;
+  @extend .attention;
+  border-width: 3px;
+}
+
+// 扩展单一选择器
+// 在选择器中使用占位符
+#context a%extreme {
+  color: blue;
+  font: {
+    weight: bold;
+    size: 16px;
+  }
+}
+
+.notice {
+  @extend %extreme; // 把占位符的样式赋给.notice 合并
+}

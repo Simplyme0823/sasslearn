@@ -1,0 +1,41 @@
+/** @format */
+.error, .seriousError {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+
+.error.intrusion, .intrusion.seriousError {
+  background-image: url("/image/hacked.png");
+}
+
+.seriousError {
+  border-width: 3px;
+}
+
+a:hover, .hoverlink, .hoverlinks {
+  text-decoration: underline;
+}
+
+.comment a.user:hover, .comment .user.hoverlink, .comment .user.hoverlinks {
+  font-weight: bold;
+}
+
+.error, .seriousError {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+
+.attention, .seriousError {
+  font-size: 3em;
+  background-color: #ff0;
+}
+
+.seriousError {
+  border-width: 3px;
+}
+
+#context a.notice {
+  color: blue;
+  font-weight: bold;
+  font-size: 16px;
+}

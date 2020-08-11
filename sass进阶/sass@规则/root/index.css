@@ -1,0 +1,32 @@
+/** @format */
+.a {
+  color: red;
+}
+
+.a .b {
+  color: orange;
+}
+
+.a .b .c {
+  color: yellow;
+}
+
+.d {
+  color: green;
+}
+
+.e {
+  color: red;
+}
+
+.e .f {
+  color: orange;
+}
+
+.e .f .g {
+  color: yellow;
+}
+
+.e .f .g .h {
+  color: green;
+}

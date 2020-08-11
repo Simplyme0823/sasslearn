@@ -1,0 +1,31 @@
+/** @format */
+
+// 与css的媒体查询类似，但是它有与js类似的冒泡功能
+
+// 这里虽然在样式内部使用了媒体查询，但是编译后 它会跑到样式外面
+.sidebar {
+  width: 300px;
+  @media screen and (orientation: landscape) {
+    width: 500px;
+  }
+}
+
+// 这里screen与orientation: landscape) 合并 且orientation: landscape跑到content外层
+@media screen {
+  .content {
+    @media (orientation: landscape) {
+      width: 500px;
+    }
+  }
+}
+
+//  也可以使用差值语法
+$media: screen;
+$feature: -webkit-min-device-pixel-ratio;
+$value: 1.5;
+
+@media #{$media} and ($feature: $value) {
+  .sidebar {
+    width: 500px;
+  }
+}
